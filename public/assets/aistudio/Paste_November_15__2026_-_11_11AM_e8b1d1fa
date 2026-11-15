@@ -1,0 +1,1601 @@
+# MASTER IMPLEMENTATION PROMPT — FUELMAX GAS STATION WEBSITE
+
+You are an elite senior frontend engineer, award-winning UI/UX designer, creative director, and advanced web animation specialist.
+
+Your task is to recreate the complete FUELMAX Gas Station website shown in the attached reference screenshot with exceptional pixel-perfect accuracy, professional production quality, and fully functional interactions.
+
+The attached screenshot is the SINGLE SOURCE OF TRUTH for the website's visual identity, layout, proportions, colors, typography, spacing, component styling, and overall visual direction.
+
+You must faithfully reproduce the website's appearance while expanding it into a complete, multi-page, production-quality gas station website.
+
+DO NOT redesign, simplify, reinterpret, modernize, or replace the original design language.
+
+Do not produce a generic gas station template.
+
+Do not create a basic landing page.
+
+Do not implement only the visible hero section.
+
+Recreate the entire visual experience from the navigation bar to the footer, then build the additional pages using the exact same design system.
+
+====================================================
+
+# 1. GENERAL IMPLEMENTATION RULES
+
+====================================================
+
+- Treat the supplied screenshot as the primary visual reference.
+- Reproduce the design as closely as technically possible.
+- Preserve the original FUELMAX branding and visual identity.
+- Maintain the black, charcoal, white, and golden-yellow color combination.
+- Follow the screenshot's actual layout proportions and section arrangements.
+- Reproduce the distinctive horizontal navigation bar.
+- Reproduce the large photographic hero with left-aligned text.
+- Reproduce the overlapping four-column service feature panel.
+- Reproduce the white fuel pricing section with four individual pricing cards.
+- Reproduce the split promotional section featuring the convenience store and FUELMAX Rewards.
+- Reproduce the dark multi-column footer.
+- Maintain consistent spacing, alignment, typography, and component proportions throughout every page.
+
+IMPORTANT:
+
+Do not invent additional visual styles that conflict with the screenshot.
+
+Additional pages must feel like natural extensions of the original FUELMAX website.
+
+Every page must use the same branding, typography, color system, buttons, navigation, footer, and interaction patterns.
+
+The finished website must look like a professionally designed, established fuel station brand.
+
+====================================================
+
+# 2. TECHNOLOGY STACK
+
+====================================================
+
+Use the following technologies:
+
+- Next.js with App Router.
+- React.js.
+- JavaScript / JSX.
+- Tailwind CSS.
+- Lucide React for icons.
+- GSAP with ScrollTrigger for advanced scroll animations.
+- Framer Motion for suitable interface transitions and micro-interactions.
+- Next.js Image component for optimized images.
+
+Implementation requirements:
+
+- Use reusable React components.
+- Keep components modular and maintainable.
+- Separate major website sections into individual components.
+- Use reusable layout components.
+- Implement clean routing.
+- Use semantic HTML.
+- Avoid unnecessary dependencies.
+- Avoid duplicated code.
+- Ensure all interactive components work correctly.
+- Use client components only where interactivity or animation requires them.
+- Ensure GSAP animations are properly initialized and cleaned up.
+
+Do not use TypeScript unless the existing project explicitly requires it.
+
+If an existing project is provided, inspect its structure and preserve its working configuration instead of unnecessarily rebuilding or replacing it.
+
+====================================================
+
+# 3. COMPLETE DESIGN SYSTEM EXTRACTION
+
+====================================================
+
+Extract and implement the following visual design system from the reference screenshot.
+
+## COLOR PALETTE
+
+The FUELMAX brand uses a high-contrast black-and-golden-yellow visual identity.
+
+The colors communicate energy, reliability, professionalism, convenience, and premium fuel services.
+
+Use the following estimated colors based on the screenshot.
+
+| Color | Hex Code | Usage |
+|---|---|---|
+| Primary Brand Yellow | #FFB900 | Primary CTAs, logos, highlights, icons, pricing accents |
+| Bright Gold | #FFC21A | Hover states, emphasis, promotional backgrounds |
+| Deep Black | #080B0F | Navigation, footer, dark panels |
+| Charcoal | #101318 | Service panel, dark content sections |
+| Dark Gray | #20242B | Secondary dark surfaces and borders |
+| White | #FFFFFF | Main content backgrounds and text on dark surfaces |
+| Off White | #F6F6F6 | Fuel pricing section background |
+| Light Gray | #E8E8E8 | Dividers, borders, subtle backgrounds |
+| Primary Text | #111318 | Main headings and dark-section text |
+| Secondary Text | #656565 | Descriptions and supporting information |
+| Muted White | #D5D5D5 | Body text on dark backgrounds |
+| Petrol Green | #279B54 | Petrol price category |
+| Diesel Blue | #2879C7 | Diesel price category |
+| Premium Gold | #E9AF25 | Premium price category |
+| Ethanol Purple | #8751C7 | E85 price category |
+
+IMPORTANT COLOR RULES:
+
+- Yellow is the primary brand accent.
+- Black and charcoal must dominate navigation and footer areas.
+- White must dominate the fuel pricing section.
+- Use yellow strategically rather than applying it everywhere.
+- Do not introduce unrelated accent colors.
+- Category colors must remain consistent across fuel pricing cards.
+
+## TYPOGRAPHY
+
+Use a modern, bold geometric sans-serif typography system.
+
+Recommended fonts:
+
+- Primary: Montserrat.
+- Alternative: Inter.
+- Headings: Montserrat ExtraBold.
+- Body: Inter or Montserrat Regular.
+
+Typography hierarchy:
+
+H1 — Hero Heading:
+- Font weight: 800.
+- Desktop size: approximately 38–42px.
+- Line height: 0.98–1.1.
+- Tight letter spacing.
+- Uppercase.
+- White first line.
+- Golden-yellow second line.
+
+H2 — Main Section Headings:
+- Font weight: 750–800.
+- Desktop size: 28–34px.
+- Tight letter spacing.
+- Dark headings on white backgrounds.
+
+H3 — Card Headings:
+- Font weight: 650–750.
+- Size: 15–19px.
+- Mostly uppercase.
+
+Body Text:
+- Font weight: 400.
+- Size: 13–15px.
+- Line height: 1.5–1.7.
+- Use muted gray or white depending on background.
+
+Navigation:
+- Font size: 10–12px.
+- Font weight: 500–600.
+- Uppercase.
+- Compact horizontal spacing.
+
+Buttons:
+- Font size: 10–12px.
+- Font weight: 700.
+- Uppercase.
+- Compact and clearly readable.
+
+Small Labels:
+- Font size: 11–13px.
+- Bold.
+- Golden yellow or relevant fuel category color.
+
+Maintain a consistent typographic hierarchy across all pages.
+
+====================================================
+
+# 4. LAYOUT, SPACING AND GRID SYSTEM
+
+====================================================
+
+The reference website uses a compact, structured desktop layout.
+
+Do not replace it with an excessively spacious contemporary layout.
+
+Follow these approximate design measurements:
+
+## Overall Container
+
+- Maximum content width: approximately 1200–1280px.
+- Desktop horizontal page padding: 38–48px.
+- Tablet horizontal padding: 24–32px.
+- Mobile horizontal padding: 18–20px.
+
+## Header
+
+- Desktop height: approximately 50px.
+- Full-width dark background.
+- Horizontal alignment.
+- Logo on the far left.
+- Navigation centered/right.
+- Yellow Find a Station button on the far right.
+
+## Hero
+
+- Desktop height: approximately 385px including the transition into the following section.
+- Full-width photographic background.
+- Text aligned to the left.
+- Hero content vertically centered.
+- Image must remain the dominant visual element.
+
+## Service Feature Panel
+
+- Four equal-width columns.
+- Approximately 158px high.
+- Dark charcoal background.
+- Rounded corners: 12–14px.
+- Thin vertical dividers.
+- Centered icons and content.
+- Slight overlap with the hero section.
+
+## Fuel Pricing Section
+
+- White or very light gray background.
+- Four-column pricing card arrangement.
+- Left-side introductory content.
+- Right-side fuel price cards.
+- Cards with consistent dimensions.
+- Subtle shadows or borders.
+- Compact internal padding.
+
+## Promotional Section
+
+- Two equal-width promotional areas.
+- Left: Convenience store photographic background.
+- Right: Golden-yellow rewards promotion.
+- Desktop layout uses a 50/50 split.
+- Both sections have balanced internal spacing.
+
+## Footer
+
+- Full-width deep black background.
+- Four-column desktop layout.
+- Logo and company information.
+- Quick links.
+- Services.
+- Contact information.
+- Bottom legal bar separated by a subtle divider.
+
+## CORNER RADII
+
+Use the following approximate values:
+
+- Buttons: 5–7px.
+- Pricing cards: 4–6px.
+- Service panel: 12–14px.
+- Feature containers: 8–12px.
+- Input fields: 5–7px.
+- Promotional cards: 6–10px.
+
+Avoid excessive rounded corners and oversized pill-shaped components.
+
+====================================================
+
+# 5. WEBSITE HEADER AND NAVIGATION
+
+====================================================
+
+Recreate the navigation bar exactly as represented in the screenshot.
+
+## Header Structure
+
+Full-width horizontal navigation with a deep black background.
+
+LEFT SIDE:
+
+FUELMAX logo.
+
+- Golden-yellow flame/drop symbol.
+- FUELMAX wordmark.
+- FUEL displayed in white.
+- MAX displayed in golden yellow.
+- Small GAS STATION subtitle underneath.
+- Maintain the logo's original horizontal proportions.
+
+CENTER / RIGHT NAVIGATION:
+
+- HOME
+- ABOUT US
+- SERVICES
+- FUEL PRICES
+- LOCATIONS
+- CONTACT
+
+ACTIVE NAVIGATION:
+
+- Active page has a thin yellow underline.
+- Underline positioned directly below the navigation text.
+- Smooth transition when changing active navigation items.
+
+RIGHT SIDE:
+
+Yellow FIND A STATION button.
+
+- Black location-pin icon.
+- Uppercase text.
+- Compact rectangular shape.
+- Slight rounded corners.
+
+INTERACTIONS:
+
+- Navigation links must work.
+- Active navigation state must update according to the current route.
+- Button hover slightly darkens the yellow.
+- Navigation hover smoothly changes text color to yellow.
+- Logo returns users to the homepage.
+
+MOBILE:
+
+- Replace desktop navigation with a hamburger menu.
+- Keep the logo visible.
+- Keep the Find a Station action accessible.
+- Mobile menu opens as a clean dark dropdown or slide-in panel.
+- Include smooth opening and closing animations.
+- Prevent background scrolling while the menu is open.
+- Close the menu when a navigation item is selected.
+
+====================================================
+
+# 6. HOMEPAGE — COMPLETE SECTION-BY-SECTION RECREATION
+
+====================================================
+
+The homepage is the most important page.
+
+Recreate the following sections in the exact order.
+
+Do not omit any section.
+
+## SECTION 01 — HERO
+
+The hero is the primary visual statement of the FUELMAX brand.
+
+BACKGROUND IMAGE:
+
+Use a high-quality, cinematic photograph of a modern fuel station at dusk.
+
+The image must feature:
+
+- A large contemporary gas station canopy.
+- Bright yellow canopy edge lighting.
+- Multiple fuel pumps.
+- Modern convenience store architecture.
+- Warm illuminated station interiors.
+- A dark blue evening sky.
+- Realistic vehicles and station surroundings.
+- Premium commercial photography.
+
+The reference features the gas station positioned predominantly on the right side.
+
+IMPORTANT COMPOSITION:
+
+- Place the station building and illuminated canopy on the right.
+- Keep the left side sufficiently dark for readable white and yellow text.
+- Use a dark gradient overlay, especially on the left.
+- Preserve the photographic details.
+- Do not use a flat color background.
+
+HERO CONTENT:
+
+Small introductory brand context, if needed, should remain visually subtle.
+
+Main heading:
+
+POWERING
+EVERY JOURNEY
+
+Typography:
+- POWERING in white.
+- EVERY JOURNEY in golden yellow.
+- Extra bold.
+- Uppercase.
+- Tight line spacing.
+
+Supporting description:
+
+"Quality fuel, great service, and unbeatable convenience. That's the FUELMAX promise."
+
+CTA BUTTONS:
+
+Primary:
+FIND A STATION
+
+- Yellow background.
+- Black location-pin icon.
+- Black bold uppercase text.
+
+Secondary:
+CHECK FUEL PRICES
+
+- Transparent dark background.
+- White border.
+- Fuel-related icon.
+- White uppercase text.
+
+INTERACTIONS:
+
+- FIND A STATION navigates to the Locations page.
+- CHECK FUEL PRICES scrolls to the fuel pricing section.
+- Subtle entrance animation for heading and description.
+- CTA buttons animate into view after the heading.
+- Background image may use a very subtle parallax effect.
+- Avoid excessive movement that affects readability.
+
+## SECTION 02 — CORE SERVICES FEATURE PANEL
+
+This section overlaps the lower area of the hero.
+
+Create a wide dark charcoal container with four equally sized columns.
+
+The four features are:
+
+01. QUALITY FUEL
+
+Icon:
+Golden-yellow fuel pump icon.
+
+Title:
+QUALITY FUEL
+
+Description:
+"High-performance fuel for a smoother, longer drive."
+
+02. CONVENIENCE STORE
+
+Icon:
+Golden-yellow storefront icon.
+
+Title:
+CONVENIENCE STORE
+
+Description:
+"Snacks, drinks & more — everything you need on the go."
+
+03. CAR WASH
+
+Icon:
+Golden-yellow car wash icon with water droplets.
+
+Title:
+CAR WASH
+
+Description:
+"Keep your car fresh and clean with our fast car wash."
+
+04. LOYALTY REWARDS
+
+Icon:
+Golden-yellow loyalty card icon.
+
+Title:
+LOYALTY REWARDS
+
+Description:
+"Earn points every time you fuel up and enjoy exclusive rewards."
+
+DESIGN:
+
+- Four equal columns.
+- Centered icons.
+- Icons approximately 38–45px.
+- White uppercase titles.
+- Small light-gray descriptions.
+- Thin vertical separators.
+- Deep charcoal background.
+- Rounded outer container.
+- Consistent vertical alignment.
+
+INTERACTIONS:
+
+- Subtle icon movement on hover.
+- Slight yellow glow on icons.
+- Cards may lift slightly.
+- Each card links to its respective service or information page.
+
+## SECTION 03 — TODAY'S FUEL PRICES
+
+This is one of the most important functional sections.
+
+BACKGROUND:
+
+Very light gray / white.
+
+LAYOUT:
+
+Two main areas.
+
+LEFT INTRODUCTION:
+
+Small yellow uppercase label:
+
+TODAY'S
+
+Large dark heading:
+
+FUEL PRICES
+
+Supporting text:
+
+"We update our fuel prices daily to ensure transparency and the best value."
+
+Button:
+
+VIEW ALL PRICES
+
+RIGHT CONTENT:
+
+Four individual fuel pricing cards arranged horizontally.
+
+CARD 01 — PETROL
+
+- Green category label.
+- Green circular fuel icon.
+- Large bold black price.
+- Unit label: / Gallon.
+
+Reference price: $3.59.
+
+CARD 02 — DIESEL
+
+- Blue category label.
+- Blue circular fuel icon.
+- Large bold black price.
+- Unit label: / Gallon.
+
+Reference price: $3.89.
+
+CARD 03 — PREMIUM
+
+- Golden-yellow category label.
+- Yellow circular fuel icon.
+- Large bold black price.
+- Unit label: / Gallon.
+
+Reference price: $4.29.
+
+CARD 04 — E85 ETHANOL
+
+- Purple category label.
+- Purple circular fuel icon.
+- Large bold black price.
+- Unit label: / Gallon.
+
+Reference price: $2.99.
+
+IMPORTANT:
+
+These prices are illustrative values displayed in the reference screenshot. Store prices in editable data rather than hardcoding them throughout the interface. Make the currency, measurement unit, and price values configurable for the actual business.
+
+CARD DESIGN:
+
+- White background.
+- Consistent dimensions.
+- Subtle shadow or border.
+- Centered content.
+- Large readable price.
+- Circular colored fuel icon.
+- Category-specific accent color.
+
+BELOW THE CARDS:
+
+Left:
+
+Small information icon and text:
+
+"Prices may vary by location."
+
+Right:
+
+"Last updated: [date and time]"
+
+FUNCTIONALITY:
+
+- Fuel prices must come from a centralized data source.
+- Build a reusable fuel price card component.
+- Create a fuel price management structure that allows prices to be updated without modifying individual components.
+- View All Prices navigates to the dedicated Fuel Prices page.
+- Provide loading and error states if prices are retrieved from an API.
+- Do not fabricate live prices or claim that illustrative values are current.
+
+ANIMATION:
+
+- Cards fade in with a slight upward movement.
+- Stagger the animation between cards.
+- Subtle hover elevation.
+- Maintain the original compact card dimensions.
+
+## SECTION 04 — CONVENIENCE STORE PROMOTION
+
+This section has a distinctive split-screen design.
+
+LEFT HALF:
+
+Photographic convenience store background.
+
+IMAGE REQUIREMENTS:
+
+Use a realistic photograph showing:
+
+- Modern convenience store shelves.
+- Snacks and beverages.
+- Refrigerated drinks.
+- Organized product displays.
+- Warm commercial lighting.
+- Clean, premium retail environment.
+
+Apply a dark gradient overlay so the text remains readable.
+
+CONTENT:
+
+Small yellow label:
+
+FUEL UP &
+
+Main heading:
+
+STOCK UP
+
+Description:
+
+"From fresh coffee to travel essentials, our convenience store has you covered."
+
+Yellow CTA:
+
+EXPLORE STORE
+
+DESIGN:
+
+- Text positioned toward the left.
+- White heading.
+- Yellow introductory label.
+- White description.
+- Yellow rectangular CTA.
+- Store photograph fills the remaining background.
+
+RIGHT HALF:
+
+Solid golden-yellow background.
+
+CONTENT:
+
+Heading:
+
+FUELMAX
+REWARDS
+
+Supporting copy:
+
+"More fuel. More points. More rewards."
+
+Three benefit items with black circular check icons:
+
+- Earn points on every purchase.
+- Redeem for discounts & offers.
+- Exclusive member deals.
+
+CTA:
+
+JOIN NOW
+
+Right-side visual:
+
+Create a premium black FUELMAX Rewards membership card.
+
+Card details:
+
+- FUELMAX logo.
+- REWARDS subtitle.
+- Sample card number.
+- SAMPLE MEMBER NAME.
+
+DESIGN:
+
+- Black rectangular membership card.
+- Slight perspective or rotation.
+- Yellow/gold diagonal accent.
+- Subtle shadow.
+- Professional payment-card appearance.
+
+INTERACTIONS:
+
+- EXPLORE STORE navigates to the Store page.
+- JOIN NOW navigates to Rewards registration.
+- Membership card can have a very subtle hover tilt.
+- Promotional content reveals on scroll.
+
+IMPORTANT:
+
+Maintain the 50/50 split and the strong contrast between the photographic store promotion and the yellow rewards promotion.
+
+## SECTION 05 — FOOTER
+
+Recreate the dark footer shown in the reference.
+
+BACKGROUND:
+
+Deep black / charcoal.
+
+FOUR-COLUMN DESKTOP LAYOUT.
+
+COLUMN 01 — BRAND
+
+FUELMAX logo.
+
+Description:
+
+"Fueling your journey with quality, convenience, and care."
+
+Social media icons:
+
+- Facebook
+- Instagram
+- Twitter / X
+- YouTube
+
+Use circular outlined icon containers.
+
+COLUMN 02 — QUICK LINKS
+
+Heading:
+
+QUICK LINKS
+
+Links:
+
+- Home
+- About Us
+- Services
+- Fuel Prices
+- Locations
+- Contact Us
+
+COLUMN 03 — SERVICES
+
+Heading:
+
+SERVICES
+
+Links:
+
+- Quality Fuel
+- Convenience Store
+- Car Wash
+- Loyalty Rewards
+- Fleet Cards
+
+COLUMN 04 — CONTACT US
+
+Heading:
+
+CONTACT US
+
+Contact details with corresponding icons:
+
+- Address
+- Phone number
+- Email address
+- Opening hours
+
+Use realistic sample content only where actual business details have not been provided. Make all contact information editable.
+
+BOTTOM FOOTER BAR:
+
+Left:
+
+"© 2024 Fuelmax Gas Station. All rights reserved."
+
+Right:
+
+- Privacy Policy
+- Terms of Service
+
+Separate the bottom bar with a subtle horizontal divider.
+
+All footer links must work.
+
+====================================================
+
+# 7. ADDITIONAL WEBSITE PAGES
+
+====================================================
+
+IMPORTANT:
+
+Do not put the entire website into one homepage.
+
+Create separate, fully functional pages.
+
+Every page must maintain the exact FUELMAX design system.
+
+Required routes:
+
+/
+/about
+/services
+/fuel-prices
+/locations
+/contact
+/store
+/rewards
+/car-wash
+/fleet-cards
+/privacy-policy
+/terms-of-service
+/404
+
+## PAGE 01 — ABOUT US
+
+Create a professional company introduction page.
+
+Include:
+
+- Hero banner with a fuel station photograph.
+- About FUELMAX introduction.
+- Company mission and vision.
+- Brand values.
+- Why customers choose FUELMAX.
+- Quality and reliability section.
+- Station photography.
+- CTA to find a station.
+
+Maintain the dark and yellow branding.
+
+## PAGE 02 — SERVICES
+
+Showcase all FUELMAX services.
+
+Create dedicated service cards for:
+
+- Quality Fuel.
+- Convenience Store.
+- Car Wash.
+- Loyalty Rewards.
+- Fleet Services.
+
+Each service card should feature:
+
+- Relevant high-quality image or icon.
+- Service title.
+- Short description.
+- Learn More CTA.
+
+Use a clean grid that maintains the original visual style.
+
+## PAGE 03 — FUEL PRICES
+
+Create a dedicated fuel pricing page.
+
+Include:
+
+- Page heading.
+- Introductory description.
+- Fuel category cards.
+- Station/location selector.
+- Price update timestamp.
+- Explanation of fuel categories.
+- Pricing information and disclaimers.
+
+Provide the ability to select a station and view its available fuel prices.
+
+Do not present sample prices as real-time data.
+
+## PAGE 04 — LOCATIONS
+
+This is an important functional page.
+
+Include:
+
+- Page heading: FIND A FUELMAX STATION.
+- Location search input.
+- Search by city, area, or ZIP/postal code.
+- Station cards.
+- Address.
+- Phone number.
+- Opening hours.
+- Available services.
+- Directions CTA.
+
+Include a map interface using a suitable map integration if available.
+
+Each location must be clickable.
+
+Include a station detail view with available services and fuel prices.
+
+Do not invent real station locations. Use clearly identifiable sample data until actual locations are supplied.
+
+## PAGE 05 — CONTACT
+
+Create a professional contact page.
+
+Include:
+
+- Contact hero section.
+- Contact information cards.
+- Phone number.
+- Email address.
+- Business address.
+- Opening hours.
+- Contact form.
+
+FORM FIELDS:
+
+- Full Name.
+- Email Address.
+- Phone Number.
+- Subject.
+- Message.
+
+Submit button:
+
+SEND MESSAGE.
+
+Implement:
+
+- Form validation.
+- Required field validation.
+- Email validation.
+- Loading state.
+- Success feedback.
+- Error feedback.
+
+## PAGE 06 — STORE
+
+Create a convenience store page.
+
+Include:
+
+- Store hero image.
+- Product category navigation.
+- Snacks.
+- Beverages.
+- Coffee.
+- Travel Essentials.
+- Automotive Essentials.
+
+Product cards should contain:
+
+- Product photograph.
+- Product name.
+- Short description.
+- Price where available.
+
+Include functional category filtering and product search.
+
+Do not invent a full e-commerce checkout system unless the project requires it.
+
+## PAGE 07 — REWARDS
+
+Create a dedicated FUELMAX Rewards page.
+
+Include:
+
+- Large rewards promotional hero.
+- Black membership card visual.
+- Benefits.
+- How the rewards programme works.
+- Earning points section.
+- Redeeming rewards section.
+- Registration form.
+- Join Now CTA.
+
+Maintain the black-and-yellow promotional aesthetic.
+
+## PAGE 08 — CAR WASH
+
+Include:
+
+- Large car wash photography.
+- Service introduction.
+- Available wash packages.
+- Service descriptions.
+- Pricing placeholders where actual prices are unavailable.
+- Benefits.
+- Find a Station CTA.
+
+## PAGE 09 — FLEET CARDS
+
+Create a dedicated business and fleet fuel management page.
+
+Include:
+
+- Fleet management hero.
+- Business benefits.
+- Fleet card features.
+- Account registration enquiry form.
+- Contact CTA.
+
+Maintain the same FUELMAX branding.
+
+====================================================
+
+# 8. IMAGE REQUIREMENTS
+
+====================================================
+
+THIS IS CRITICAL.
+
+The website relies heavily on high-quality commercial photography.
+
+Do not use empty image placeholders.
+
+Do not use gray boxes.
+
+Do not use generic illustrations in place of the photographic assets shown in the screenshot.
+
+Do not leave missing images.
+
+SOURCE IMAGES FROM:
+
+- Unsplash.
+- Pexels.
+- Other suitable royalty-free commercial image sources.
+
+Find images that closely resemble the following reference subjects:
+
+01. Modern illuminated gas station at dusk.
+02. Fuel pumps and station canopy.
+03. Convenience store interior with organized shelves.
+04. Premium rewards membership card.
+05. Modern car wash facility.
+06. Fuel station staff and customer service.
+07. Vehicles refueling.
+08. Modern commercial station exterior.
+
+IMAGE COMPOSITION RULES:
+
+- Hero image must have the station on the right and darker negative space on the left.
+- Store promotional image must show realistic retail shelves.
+- Service images must match their corresponding subjects.
+- Use high-resolution photography.
+- Avoid watermarks.
+- Avoid unrelated stock images.
+- Avoid illustrations where realistic photography is required.
+
+IMAGE IMPLEMENTATION:
+
+- Use Next.js Image.
+- Correct aspect ratios.
+- object-fit: cover.
+- Proper responsive sizing.
+- Lazy loading for below-the-fold images.
+- Priority loading for the main hero image.
+- Descriptive alt text.
+- Appropriate image fallbacks.
+
+Do not stretch, distort, or crop important subjects incorrectly.
+
+====================================================
+
+# 9. ICON SYSTEM
+
+====================================================
+
+Use Lucide React icons or equivalent SVG icons.
+
+The icons must closely resemble the visual style in the reference.
+
+Required icons:
+
+- Fuel pump.
+- Flame / fuel drop.
+- Location pin.
+- Storefront.
+- Car wash.
+- Loyalty card.
+- Check circle.
+- Phone.
+- Email.
+- Map pin.
+- Clock.
+- Facebook.
+- Instagram.
+- X / Twitter.
+- YouTube.
+
+ICON STYLING:
+
+- Golden yellow for primary brand icons.
+- White for icons on dark backgrounds where appropriate.
+- Black for icons on yellow buttons.
+- Category colors for fuel pricing icons.
+- Consistent sizing.
+- Consistent stroke weight.
+
+Avoid mixing unrelated icon styles.
+
+====================================================
+
+# 10. ANIMATION AND INTERACTION SYSTEM
+
+====================================================
+
+Use GSAP, ScrollTrigger, and Framer Motion where appropriate.
+
+Animations must enhance the original design without changing its visual identity.
+
+Do not introduce excessive motion.
+
+## HERO ANIMATIONS
+
+On initial page load:
+
+1. Background image appears with a subtle fade.
+2. Main heading enters using a slight fade and upward movement.
+3. Supporting description fades in.
+4. Primary and secondary buttons animate into view.
+
+Use staggered timing.
+
+The hero must feel premium and cinematic without becoming distracting.
+
+## NAVIGATION ANIMATIONS
+
+- Smooth active underline transition.
+- Yellow text hover.
+- Subtle button hover.
+- Smooth mobile menu entrance and exit.
+
+## SERVICE PANEL ANIMATIONS
+
+- Service icons fade in.
+- Slight upward entrance.
+- Subtle hover movement.
+- Yellow icon emphasis on hover.
+
+## FUEL PRICE ANIMATIONS
+
+- Section heading reveals on scroll.
+- Cards stagger into view.
+- Prices may animate from a lower visual position.
+- Subtle card elevation on hover.
+
+Do not continuously animate fuel prices or imply live changes.
+
+## PROMOTIONAL SECTION
+
+- Convenience store image reveals with a subtle horizontal movement.
+- Text fades in.
+- Rewards content reveals with staggered animation.
+- Membership card receives a subtle perspective effect on hover.
+
+## FOOTER
+
+- Subtle fade-up reveal.
+- Social icons respond to hover.
+
+## BUTTON INTERACTIONS
+
+Primary buttons:
+
+- Slight darkening on hover.
+- Scale approximately 1.02.
+- Smooth transition.
+
+Secondary buttons:
+
+- Border and text color transition.
+- Subtle background change.
+
+Use consistent easing and timing.
+
+Recommended transition duration:
+
+200–400ms for standard interactions.
+
+Use scroll-triggered animations with appropriate once-only behavior.
+
+IMPORTANT:
+
+- Respect prefers-reduced-motion.
+- Prevent animation flicker.
+- Avoid layout shifts.
+- Clean up GSAP timelines and ScrollTrigger instances.
+- Ensure all animations work on mobile.
+- Do not sacrifice performance for visual effects.
+
+====================================================
+
+# 11. RESPONSIVE DESIGN
+
+====================================================
+
+The desktop screenshot is the primary design reference.
+
+However, the website must be fully responsive and intentionally designed for smaller screens.
+
+Test these exact viewport widths:
+
+- 1440px.
+- 1280px.
+- 1024px.
+- 768px.
+- 430px.
+- 390px.
+- 360px.
+
+## DESKTOP — ABOVE 1024PX
+
+Preserve the screenshot's original structure:
+
+- Horizontal navigation.
+- Full-width hero image.
+- Left-aligned hero content.
+- Four-column service panel.
+- Four-column fuel pricing cards.
+- Split promotional section.
+- Four-column footer.
+
+## TABLET — 768PX TO 1024PX
+
+- Navigation may collapse into a hamburger menu.
+- Hero heading scales proportionally.
+- Maintain a strong image-to-text relationship.
+- Service panel becomes a 2x2 grid.
+- Fuel price cards become a 2x2 grid.
+- Promotional sections remain balanced where space allows.
+- Footer becomes a 2x2 grid.
+
+## MOBILE — BELOW 768PX
+
+HEADER:
+
+- Compact horizontal header.
+- Logo on the left.
+- Hamburger menu on the right.
+- Accessible station-finder action.
+
+HERO:
+
+- Maintain the cinematic station image.
+- Adjust image positioning to preserve the station canopy.
+- Use a darker overlay for text readability.
+- Stack hero content vertically.
+- Reduce heading size.
+- Stack CTA buttons where necessary.
+
+SERVICES:
+
+- Two-column layout on wider phones where appropriate.
+- Single-column layout on very narrow screens if required.
+- Preserve icons and descriptions.
+
+FUEL PRICES:
+
+- Two-column card layout on most phones.
+- Single column on very narrow devices if necessary.
+- Keep price typography prominent.
+
+PROMOTIONAL SECTION:
+
+- Stack convenience store and rewards sections vertically.
+- Preserve each section's original visual identity.
+- Keep the membership card visible and correctly proportioned.
+
+FOOTER:
+
+- Stack columns.
+- Maintain readable spacing.
+- Social icons remain accessible.
+- Bottom legal links wrap naturally.
+
+STRICT RESPONSIVE RULES:
+
+NO:
+
+- Horizontal scrolling.
+- Overlapping text.
+- Cut-off buttons.
+- Distorted images.
+- Broken pricing cards.
+- Navigation overflow.
+- Text outside its containers.
+- Unreadable typography.
+- Unexpected layout shifts.
+
+Mobile must feel intentionally designed, not simply shrunk.
+
+====================================================
+
+# 12. FUNCTIONAL REQUIREMENTS
+
+====================================================
+
+Every visible interactive element must perform its advertised action.
+
+Implement:
+
+- Working navigation.
+- Active navigation states.
+- Mobile navigation.
+- Find a Station navigation.
+- Fuel price navigation.
+- Fuel price filtering by location where data is available.
+- Location search.
+- Station detail navigation.
+- Contact form validation.
+- Rewards registration interface.
+- Store product filtering.
+- Service page navigation.
+- Social media links.
+- Footer navigation.
+- Responsive interactive buttons.
+
+Use centralized data structures for:
+
+- Fuel prices.
+- Station locations.
+- Contact information.
+- Services.
+- Store products.
+- Rewards information.
+
+Separate presentation from business data.
+
+Where a backend or API is not configured, implement a clear frontend-ready structure and realistic demonstration states.
+
+Do not pretend that forms have been submitted to a real business when no submission backend exists.
+
+Do not invent live station availability, live fuel prices, or actual business information.
+
+====================================================
+
+# 13. SEO REQUIREMENTS
+
+====================================================
+
+Implement proper SEO throughout the website.
+
+Include:
+
+- Unique page titles.
+- Meta descriptions.
+- Canonical URLs.
+- Open Graph metadata.
+- Twitter Card metadata.
+- robots.txt.
+- sitemap.xml.
+- Semantic heading hierarchy.
+- Descriptive image alt attributes.
+- Structured data using JSON-LD.
+
+Use suitable structured data types where appropriate:
+
+- Organization.
+- LocalBusiness.
+- GasStation where supported by the schema vocabulary.
+- Service.
+- Product where applicable.
+
+Ensure every page has relevant metadata.
+
+Optimize for relevant search terms such as:
+
+- Fuel station.
+- Gas station.
+- Fuel prices.
+- Petrol station.
+- Diesel.
+- Convenience store.
+- Car wash.
+- Fuel rewards.
+- Find a fuel station.
+
+Do not add fabricated addresses, ratings, or business details to structured data.
+
+====================================================
+
+# 14. ACCESSIBILITY
+
+====================================================
+
+Follow accessibility best practices.
+
+Use:
+
+- Semantic HTML.
+- Accessible navigation.
+- Keyboard navigation.
+- Visible focus states.
+- ARIA labels where necessary.
+- Proper heading hierarchy.
+- Accessible form labels.
+- Descriptive alt text.
+- Sufficient color contrast.
+- Accessible mobile menu controls.
+- Reduced-motion support.
+
+Ensure all interactive elements can be used with a keyboard.
+
+====================================================
+
+# 15. PERFORMANCE OPTIMIZATION
+
+====================================================
+
+Target a Lighthouse score of 90+ where technically achievable.
+
+Optimize:
+
+- Image loading.
+- Image sizes.
+- Font loading.
+- JavaScript bundles.
+- Component rendering.
+- Animation performance.
+- Layout shifts.
+- Unnecessary dependencies.
+
+Use:
+
+- Next.js Image optimization.
+- Lazy loading.
+- Appropriate image formats.
+- Dynamic imports when beneficial.
+- Efficient component composition.
+- Optimized GSAP animations.
+
+Avoid unnecessarily large assets.
+
+Ensure the website loads quickly on mobile networks.
+
+====================================================
+
+# 16. STRICT VISUAL QUALITY ASSURANCE
+
+====================================================
+
+THIS SECTION IS MANDATORY.
+
+After implementation, perform a complete visual comparison against the supplied FUELMAX screenshot.
+
+Do not stop after creating the first version.
+
+Compare the implementation from TOP TO BOTTOM.
+
+AUDIT THE FOLLOWING:
+
+HEADER:
+- Logo dimensions.
+- Navigation alignment.
+- Header height.
+- Button dimensions.
+- Active underline.
+
+HERO:
+- Background image selection.
+- Canopy positioning.
+- Dark overlay.
+- Heading size.
+- Heading alignment.
+- Text spacing.
+- Button proportions.
+- Hero height.
+
+SERVICE PANEL:
+- Position relative to hero.
+- Overall dimensions.
+- Four-column structure.
+- Icon sizes.
+- Text alignment.
+- Dividers.
+- Rounded corners.
+
+FUEL PRICES:
+- Section background.
+- Heading hierarchy.
+- Introductory column width.
+- Four pricing card proportions.
+- Category colors.
+- Price typography.
+- Card alignment.
+- Information labels.
+
+PROMOTIONAL SECTION:
+- 50/50 split.
+- Convenience store photograph.
+- Dark image overlay.
+- Rewards background color.
+- Membership card proportions.
+- Text alignment.
+
+FOOTER:
+- Background color.
+- Column proportions.
+- Logo.
+- Contact icons.
+- Social media icons.
+- Divider.
+- Legal links.
+
+RESPONSIVE:
+- All specified viewport widths.
+- Mobile navigation.
+- Card stacking.
+- Image cropping.
+- Typography scaling.
+- Button sizing.
+
+ANIMATIONS:
+- Entrance timing.
+- Scroll-triggered behavior.
+- Hover interactions.
+- Mobile performance.
+
+If anything looks incomplete, generic, misaligned, visually weak, broken, or significantly different from the reference:
+
+FIX IT AUTOMATICALLY.
+
+Do not ask the user to manually fix obvious visual problems.
+
+====================================================
+
+# 17. FINAL IMPLEMENTATION REQUIREMENTS
+
+====================================================
+
+The final website must include:
+
+- Complete FUELMAX homepage.
+- All required secondary pages.
+- Consistent navigation.
+- Consistent footer.
+- Complete responsive layouts.
+- Reusable components.
+- Centralized data structures.
+- Functional interactive elements.
+- High-quality photography.
+- Smooth animations.
+- SEO implementation.
+- Accessibility support.
+- Performance optimization.
+
+The website must look like the supplied reference, not like a generic gas station website.
+
+The desktop homepage must retain the exact visual character of the original screenshot.
+
+The secondary pages must extend the same design system without introducing a different brand identity.
+
+====================================================
+
+# FINAL NON-NEGOTIABLE INSTRUCTIONS
+
+====================================================
+
+THE REFERENCE SCREENSHOT IS THE VISUAL SOURCE OF TRUTH.
+
+DO NOT:
+
+- Create only the hero section.
+- Create only the visible first screen.
+- Produce a basic landing page.
+- Remove any of the reference sections.
+- Replace the black-and-yellow branding.
+- Change the original layout unnecessarily.
+- Use generic gas station imagery.
+- Leave empty image placeholders.
+- Leave unfinished pages.
+- Create non-functional buttons.
+- Use inconsistent typography.
+- Introduce unrelated colors.
+- Ignore mobile responsiveness.
+- Stop after producing a rough implementation.
+
+I WANT THE COMPLETE FUELMAX GAS STATION WEBSITE.
+
+Recreate the original design faithfully, implement all homepage sections, build every required secondary page, use premium commercial photography, add polished animations, and ensure all interactions work.
+
+PRIORITY ORDER:
+
+1. Pixel-perfect visual fidelity to the reference screenshot.
+2. Correct FUELMAX branding and design system.
+3. Complete homepage section implementation.
+4. Functional navigation and interactions.
+5. Complete secondary pages.
+6. Responsive design.
+7. High-quality animations.
+8. Performance, accessibility, and SEO.
+
+DO NOT COMPROMISE THE ORIGINAL DESIGN FOR YOUR OWN CREATIVE INTERPRETATION.
+
+BUILD THE COMPLETE WEBSITE NOW.

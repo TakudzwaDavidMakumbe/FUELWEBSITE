@@ -1,0 +1,6 @@
+{
+  "name": "FUELMAX Gas Station",
+  "description": "Powering every journey with high-performance fuel, clean convenience stores, express car wash facilities, and FUELMAX Rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
